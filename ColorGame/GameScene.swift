@@ -35,6 +35,46 @@ class GameScene: SKScene {
         
     }
     
+    func moveVertically (up: Bool) {
+        if up {
+            let moveAction = SKAction.moveBy(x: 0, y: 3, duration: 0.01)
+            let repeatAction = SKAction.repeatForever(moveAction)
+            player?.run(repeatAction)
+        } else {
+            let moveAction = SKAction.moveBy(x: 0, y: -3, duration: 0.01)
+            let repeatAction = SKAction.repeatForever(moveAction)
+            player?.run(repeatAction)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.previousLocation(in: self)
+            let node = self.nodes(at: location).first
+            
+            switch node?.name {
+            case "right"?:
+                print("Move RIGHT")
+            case "up"?:
+                moveVertically(up: true)
+            case "down"?:
+                moveVertically(up: false)
+            case .none:
+                break
+            case .some(_):
+                break
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        player?.removeAllActions()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        player?.removeAllActions()
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
