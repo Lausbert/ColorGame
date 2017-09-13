@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D871CB81F6963E30023F636 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8D871CB71F6963E30023F636 /* Spark.sks */; };
 		8DB3379D1F69289B00DC209F /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CA1F66E602009E7403 /* background.wav */; };
 		8DB3379E1F69289E00DC209F /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CB1F66E602009E7403 /* fail.wav */; };
 		8DB3379F1F6928A100DC209F /* levelCompleted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CC1F66E602009E7403 /* levelCompleted.wav */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D871CB71F6963E30023F636 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
+		8D871CB91F6964380023F636 /* fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireworks.sks; sourceTree = "<group>"; };
 		8DE3B8AE1F66E591009E7403 /* ColorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE3B8B11F66E591009E7403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE3B8B31F66E591009E7403 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 			children = (
 				8DE3B8B11F66E591009E7403 /* AppDelegate.swift */,
 				8DE3B8B31F66E591009E7403 /* GameScene.sks */,
+				8D871CB71F6963E30023F636 /* Spark.sks */,
+				8D871CB91F6964380023F636 /* fireworks.sks */,
 				8DE3B8B51F66E591009E7403 /* Actions.sks */,
 				8DE3B8B71F66E591009E7403 /* GameScene.swift */,
 				8DE3B8B91F66E591009E7403 /* GameViewController.swift */,
@@ -168,6 +173,7 @@
 				8DB3379F1F6928A100DC209F /* levelCompleted.wav in Resources */,
 				8DB337A31F6928AA00DC209F /* powerUp.wav in Resources */,
 				8DB3379D1F69289B00DC209F /* background.wav in Resources */,
+				8D871CB81F6963E30023F636 /* Spark.sks in Resources */,
 				8DE3B8BF1F66E591009E7403 /* Assets.xcassets in Resources */,
 				8DE3B8C21F66E591009E7403 /* LaunchScreen.storyboard in Resources */,
 				8DB337A01F6928A300DC209F /* levelUp.wav in Resources */,
