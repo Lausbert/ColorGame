@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DB3379D1F69289B00DC209F /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CA1F66E602009E7403 /* background.wav */; };
+		8DB3379E1F69289E00DC209F /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CB1F66E602009E7403 /* fail.wav */; };
+		8DB3379F1F6928A100DC209F /* levelCompleted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CC1F66E602009E7403 /* levelCompleted.wav */; };
+		8DB337A01F6928A300DC209F /* levelUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CD1F66E602009E7403 /* levelUp.wav */; };
+		8DB337A11F6928A500DC209F /* MenuHighscoreMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CE1F66E602009E7403 /* MenuHighscoreMusic.mp3 */; };
+		8DB337A21F6928A800DC209F /* move.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8CF1F66E602009E7403 /* move.wav */; };
+		8DB337A31F6928AA00DC209F /* powerUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8D01F66E602009E7403 /* powerUp.wav */; };
 		8DE3B8B21F66E591009E7403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3B8B11F66E591009E7403 /* AppDelegate.swift */; };
 		8DE3B8B41F66E591009E7403 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8B31F66E591009E7403 /* GameScene.sks */; };
 		8DE3B8B61F66E591009E7403 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8B51F66E591009E7403 /* Actions.sks */; };
@@ -154,10 +161,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB337A21F6928A800DC209F /* move.wav in Resources */,
 				8DE3B8BD1F66E591009E7403 /* Main.storyboard in Resources */,
 				8DE3B8B41F66E591009E7403 /* GameScene.sks in Resources */,
+				8DB3379E1F69289E00DC209F /* fail.wav in Resources */,
+				8DB3379F1F6928A100DC209F /* levelCompleted.wav in Resources */,
+				8DB337A31F6928AA00DC209F /* powerUp.wav in Resources */,
+				8DB3379D1F69289B00DC209F /* background.wav in Resources */,
 				8DE3B8BF1F66E591009E7403 /* Assets.xcassets in Resources */,
 				8DE3B8C21F66E591009E7403 /* LaunchScreen.storyboard in Resources */,
+				8DB337A01F6928A300DC209F /* levelUp.wav in Resources */,
+				8DB337A11F6928A500DC209F /* MenuHighscoreMusic.mp3 in Resources */,
 				8DE3B8B61F66E591009E7403 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
