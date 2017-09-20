@@ -12,15 +12,34 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Collision Categories
+    
     let playerCategory: UInt32 = 0x1 << 0
     let enemyCategory: UInt32 = 0x1 << 1
     let targetCategory: UInt32 = 0x1 << 2
+    let powerUpCategory: UInt32 = 0x1 << 3
     
     // MARK: Nodes
+    
     var player: SKSpriteNode?
     var target: SKSpriteNode?
+    var currentScore: Int = 0 {
+        didSet {
+            self.scoreLabel?.text = "SCORE: \(self.currentScore)"
+        }
+    }
+    var remainingTime: TimeInterval = 60 {
+        didSet {
+            self.timeLabel?.text = "TIME: \(Int(self.remainingTime))"
+        }
+    }
+    
+    // MARK: HUD
+    
+    var timeLabel: SKLabelNode?
+    var scoreLabel: SKLabelNode?
     
     // MARK: Arrays
+    
     var tracksArray: [SKSpriteNode]? = [SKSpriteNode]()
     let trackVelocities = [180, 200, 250]
     var directionArray = [Bool]()
@@ -30,16 +49,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var currentTrack = 0
     var movingToTrack = false
+    
+    // MARK: Sound
+    
     let moveSound = SKAction.playSoundFileNamed("move.wav", waitForCompletion: false)
+    var backgroundNoise: SKAudioNode!
     
     // MARK: Entry Point
     
     override func didMove(to view: SKView) {
         setupTracks()
+        createHUD()
+        launchGameTimer()
         createPlayer()
         createTarget()
         
         self.physicsWorld.contactDelegate = self
+        
+        if let musicURL = Bundle.main.url(forResource: "background", withExtension: "wav") {
+            backgroundNoise = SKAudioNode(url: musicURL)
+            addChild(backgroundNoise)
+        }
         
         if let numberOfTracks = tracksArray?.count {
             for _ in 0...numberOfTracks {
@@ -101,6 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == enemyCategory {
+            self.run(SKAction.playSoundFileNamed("fail.wav", waitForCompletion: true))
             movePlayerToStart()
         } else if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == targetCategory {
             nextLevel(playerPhysicsBody: playerBody)
@@ -114,6 +145,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if player.position.y > self.size.height || player.position.y < 0 {
                 movePlayerToStart()
             }
+        }
+        
+        if remainingTime <= 5 {
+            timeLabel?.fontColor = UIColor.red
         }
     }
 }

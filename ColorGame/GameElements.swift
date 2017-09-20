@@ -17,6 +17,14 @@ enum Enemies: Int {
 
 extension GameScene {
     
+    func createHUD() {
+        timeLabel = self.childNode(withName: "time") as? SKLabelNode
+        scoreLabel = self.childNode(withName: "score") as? SKLabelNode
+        
+        remainingTime = 60
+        currentScore = 0
+    }
+    
     func setupTracks() {
         for i in 0...8 {
             if let track = self.childNode(withName: "\(i)") as? SKSpriteNode {
@@ -78,5 +86,24 @@ extension GameScene {
         enemySprite.physicsBody?.velocity = up ? CGVector(dx: 0, dy: velocityArray[track]) : CGVector(dx: 0, dy: -velocityArray[track])
         
         return enemySprite
+    }
+    
+    func createPowerUp (forTrack track: Int) -> SKSpriteNode? {
+        let powerUpSprite = SKSpriteNode(imageNamed: "PowerUp")
+        powerUpSprite.name = "ENEMY"
+        
+        guard let powerUpPosition = tracksArray?[track].position else {return nil}
+        
+        let up = directionArray[track]
+        
+        powerUpSprite.position.x = powerUpPosition.x
+        powerUpSprite.position.y = up ? -130 : self.size.height + 130
+        
+        powerUpSprite.physicsBody = SKPhysicsBody(circleOfRadius: powerUpSprite.size.width / 2)
+        powerUpSprite.physicsBody?.linearDamping = 0
+        powerUpSprite.physicsBody?.categoryBitMask = powerUpCategory
+        powerUpSprite.physicsBody?.velocity = up ? CGVector(dx: 0, dy: velocityArray[track]) : CGVector(dx: 0, dy: -velocityArray[track])
+        
+        return powerUpSprite
     }
 }
