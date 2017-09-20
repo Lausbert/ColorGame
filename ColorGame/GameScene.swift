@@ -135,6 +135,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             movePlayerToStart()
         } else if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == targetCategory {
             nextLevel(playerPhysicsBody: playerBody)
+        } else if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == powerUpCategory {
+            self.run(SKAction.playSoundFileNamed("powerUp.wav", waitForCompletion: true))
+            otherBody.node?.removeFromParent()
+            remainingTime += 5
         }
     }
     
