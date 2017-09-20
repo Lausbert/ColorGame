@@ -17,6 +17,7 @@
 		8DB337A31F6928AA00DC209F /* powerUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8D01F66E602009E7403 /* powerUp.wav */; };
 		8DC670EF1F725BBD001D598B /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC670EE1F725BBC001D598B /* GameElements.swift */; };
 		8DC670F11F725BCE001D598B /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC670F01F725BCE001D598B /* GameFunctions.swift */; };
+		8DC670F21F7274C3001D598B /* fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8D871CB91F6964380023F636 /* fireworks.sks */; };
 		8DE3B8B21F66E591009E7403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3B8B11F66E591009E7403 /* AppDelegate.swift */; };
 		8DE3B8B41F66E591009E7403 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8B31F66E591009E7403 /* GameScene.sks */; };
 		8DE3B8B61F66E591009E7403 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8DE3B8B51F66E591009E7403 /* Actions.sks */; };
@@ -192,6 +193,7 @@
 				8DE3B8BD1F66E591009E7403 /* Main.storyboard in Resources */,
 				8DE3B8B41F66E591009E7403 /* GameScene.sks in Resources */,
 				8DB3379E1F69289E00DC209F /* fail.wav in Resources */,
+				8DC670F21F7274C3001D598B /* fireworks.sks in Resources */,
 				8DB3379F1F6928A100DC209F /* levelCompleted.wav in Resources */,
 				8DB337A31F6928AA00DC209F /* powerUp.wav in Resources */,
 				8DB3379D1F69289B00DC209F /* background.wav in Resources */,

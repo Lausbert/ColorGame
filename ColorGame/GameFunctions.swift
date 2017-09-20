@@ -61,4 +61,23 @@ extension GameScene {
             }
         }
     }
+    
+    func movePlayerToStart() {
+        if let player = self.player {
+            player.removeFromParent()
+            self.player = nil
+            self.createPlayer()
+            self.currentTrack = 0
+            self.movingToTrack = false
+        }
+    }
+    
+    func nextLevel (playerPhysicsBody: SKPhysicsBody) {
+        let emitter = SKEmitterNode(fileNamed: "fireworks.sks")
+        playerPhysicsBody.node?.addChild(emitter!)
+        self.run(SKAction.wait(forDuration: 0.5)) {
+            emitter?.removeFromParent()
+            self.movePlayerToStart()
+        }
+    }
 }
