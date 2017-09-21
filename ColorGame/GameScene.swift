@@ -22,6 +22,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: SKSpriteNode?
     var target: SKSpriteNode?
+    
+    // MARK: HUD
+    
+    var pause: SKSpriteNode?
+    var timeLabel: SKLabelNode?
+    var scoreLabel: SKLabelNode?
     var currentScore: Int = 0 {
         didSet {
             self.scoreLabel?.text = "SCORE: \(self.currentScore)"
@@ -33,11 +39,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.timeLabel?.text = "TIME: \(Int(self.remainingTime))"
         }
     }
-    
-    // MARK: HUD
-    
-    var timeLabel: SKLabelNode?
-    var scoreLabel: SKLabelNode?
     
     // MARK: Arrays
     
@@ -94,11 +95,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             switch node?.name {
             case "right"?:
-                moveToNextTrack()
+                if currentTrack < 8 {
+                     moveToNextTrack()
+                }
             case "up"?:
                 moveVertically(up: true)
             case "down"?:
                 moveVertically(up: false)
+            case "pause"?:
+                if let scene = self.scene {
+                    if scene.isPaused {
+                        scene.isPaused = false
+                    } else {
+                        scene.isPaused = true
+                    }
+                }
             case .none:
                 break
             case .some(_):
