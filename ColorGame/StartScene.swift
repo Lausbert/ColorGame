@@ -14,17 +14,21 @@ class StartScene: SKScene {
     var gameScene:SKScene!
     var backgroundMusic: SKAudioNode!
     
+    var scrollingBackground: ScrollingBackground?
+    
     override func didMove(to view: SKView) {
         playButton = self.childNode(withName: "startButton") as? SKSpriteNode
         
+        scrollingBackground = ScrollingBackground.scrollingNodeWithImage(imageName: "loopBG", containerWidth: self.size.width)
+        scrollingBackground?.scrollingSpeed = 1.5
+        scrollingBackground?.anchorPoint = .zero
+        
+        self.addChild(scrollingBackground!)
         
         if let musicURL = Bundle.main.url(forResource: "MenuHighscoreMusic", withExtension: "mp3") {
             backgroundMusic = SKAudioNode(url: musicURL)
             addChild(backgroundMusic)
         }
-        
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,6 +42,12 @@ class StartScene: SKScene {
                 gameScene.scaleMode = .aspectFit
                 self.view?.presentScene(gameScene, transition: transition)
             }
+        }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        if let scrollingBG = self.scrollingBackground {
+            scrollingBG.update(currentTime: currentTime)
         }
     }
 }
